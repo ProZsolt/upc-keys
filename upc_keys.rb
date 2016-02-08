@@ -1,6 +1,9 @@
 require 'digest/md5'
 
+PREFIXES = ['SAAP', 'SBAP', 'SAPP']
+
 def predict_serials ssid
+  ssid = ssid[3,10].to_i
   serials = []
   for i in 0..4
     for p0 in 0..9
@@ -86,8 +89,7 @@ def serial_to_pass serial
 end
 
 def predict_passwords ssid
-  prefixes = ['SAAP', 'SBAP', 'SAPP']
-  predict_serials(ssid).product(prefixes).map do |serial, prefix|
+  predict_serials(ssid).product(PREFIXES).map do |serial, prefix|
     serial_to_pass(prefix + serial.to_s.rjust(8, '0'))
   end
 end
