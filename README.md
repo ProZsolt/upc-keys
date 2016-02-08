@@ -7,7 +7,7 @@ WPA2 passphrase recovery tool for UPC%07d devices with automatic WIFI scanning a
 ## Requirements
 **OS X**
 
-**Linux** support coming soon...
+**Linux** with network-manager
 
 We've tested it on: OS X 10.10
 
